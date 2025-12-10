@@ -1,0 +1,11 @@
+dnspython==2.8.0
+pymongo==4.15.5
+python-dotenv==1.2.1
+redis==7.1.0
+pymongo==4.10.1
+motor==3.6.0
+python-dotenv==1.0.0
+requests==2.32.3
+httpx==0.28.1
+pydantic==2.10.3
+pydantic-ai==0.0.14
