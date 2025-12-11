@@ -17,6 +17,7 @@ db = client[MONGO_DB_NAME]
 
 # Export commonly used collections
 meals_collection = db.meals
+recipe_contexts_collection = db.recipe_contexts
 
 # Test connection
 def test_connection():

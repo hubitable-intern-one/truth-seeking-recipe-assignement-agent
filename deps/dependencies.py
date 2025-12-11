@@ -16,11 +16,6 @@ class AgentDependencies:
     mongo_db: AsyncIOMotorDatabase
     redis_client: redis.Redis
     http_client: httpx.AsyncClient
-    
-    # Context for current operation
-    recipe_id: Optional[str] = None
-    user_context: Optional[dict] = None
-
 
 async def get_dependencies() -> AgentDependencies:
     """
