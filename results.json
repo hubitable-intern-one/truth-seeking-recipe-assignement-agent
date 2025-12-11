@@ -1,0 +1,233 @@
+{
+  "created_at": 1765484204141.642,
+  "start_timestamp": "2025-12-11T20:16:37.273895Z",
+  "end_timestamp": "2025-12-11T20:16:42.996711Z",
+  "trace_id": "019b0f0eeade0306b122815aea588988",
+  "span_id": "d80562e935919de9",
+  "kind": "span",
+  "level": 9,
+  "parent_span_id": "327619663e42af17",
+  "span_name": "running tool",
+  "message": "running tool: optimized_search",
+  "is_exception": false,
+  "exception_type": null,
+  "tags": [],
+  "otel_scope_name": "pydantic-ai",
+  "otel_scope_version": "1.29.0",
+  "service_name": "unknown_service",
+  "service_version": "a88202403990a35bdfe626aa62e744d8a37c5b5f",
+  "http_response_status_code": null,
+  "gen_ai_operation_name": null,
+  "gen_ai_request_model": null,
+  "gen_ai_response_model": null,
+  "gen_ai_system": null,
+  "gen_ai_usage_input_tokens": 0,
+  "gen_ai_usage_output_tokens": 0,
+  "gen_ai_response_id": null,
+  "operation_cost": null,
+  "matched_filter": true,
+  "user_columns": {},
+  "is_extra_span": false,
+  "day": "2025-12-11",
+  "duration": 5.722815781,
+  "otel_status_code": "UNSET",
+  "otel_status_message": null,
+  "otel_links": [],
+  "otel_events": [],
+  "url_path": null,
+  "url_query": null,
+  "url_full": null,
+  "http_route": null,
+  "http_method": null,
+  "attributes": {
+    "gen_ai.tool.call.id": "functions.optimized_search:0",
+    "gen_ai.tool.name": "optimized_search",
+    "tool_arguments": {
+      "queries": [
+        "Gram flour glycemic index diabetes blood sugar control",
+        "Air fryer vs deep fryer fat content diabetes cardiovascular risk",
+        "Onion carrot fiber content glycemic load type 2 diabetes",
+        "Calcium fortified soya yogurt diabetes bone health benefits",
+        "Low calorie cooking spray 180°C oxidation diabetes safety"
+      ]
+    },
+    "tool_response": [
+      {
+        "query": "Gram flour glycemic index diabetes",
+        "follow_up_questions": null,
+        "answer": "Gram flour has a low glycemic index, making it a good option for people with diabetes. It can help reduce blood sugar spikes compared to refined wheat flour. Use it in place of wheat flour for better glycemic control.",
+        "images": [],
+        "results": [
+          {
+            "url": "https://www.bezzyt2d.com/discover/diet-and-nutrition-t2d/health-flour-options/",
+            "title": "5 Flour Options for Cooking and Baking with Diabetes - Bezzy T2D",
+            "content": "White flour is a high-glycemic food with a glycemic index of 85 out of 100, meaning it can raise blood glucose quickly.",
+            "score": 0.6964752,
+            "raw_content": null
+          },
+          {
+            "url": "https://diabetestelecare.com/best-ways-to-use-gram-flour-for-diabetes-control/",
+            "title": "7 Best Ways to Use Gram Flour for Diabetes Control",
+            "content": "Gram flour can be used in place of refined wheat flour to help reduce the glycemic load of baked goods, making them more blood sugar-friendly",
+            "score": 0.5775198,
+            "raw_content": null
+          },
+          {
+            "url": "https://diabesmart.in/blogs/diet-for-diabetics/what-is-the-glycemic-index-of-different-flours?srsltid=AfmBOorcki1pw8mT42q7MDsATXJjGMnjXSkh-wN7vLV_qa6hR7KTbM4e",
+            "title": "Glycemic Index of Different Flours - DiabeSmart",
+            "content": "Wheat flour has a higher glycemic index than ragi, corn, barley, and jowar, causing quicker blood sugar spikes.",
+            "score": 0.4362623,
+            "raw_content": null
+          }
+        ],
+        "response_time": 1.25,
+        "request_id": "3f41e501-1ab7-4c32-b75a-dd40ddbb6660"
+      },
+      {
+        "query": "Air fryer vs deep fryer",
+        "follow_up_questions": null,
+        "answer": "Air fryers use hot air circulation for cooking, while deep fryers submerge food in oil, making air fryers generally healthier with less oil. Air fryers produce crispy food with less fat, whereas deep fryers offer traditional fried flavors.",
+        "images": [],
+        "results": [
+          {
+            "url": "https://www.maytag.com/blog/kitchen/air-fryer-vs-deep-fryer.html",
+            "title": "Air Fryer vs. Deep Fryer: What's the Difference? - Maytag",
+            "content": "When shopping for a frying appliance, it is important to understand the differences between air fryers and deep fryers. Use a large, deep pot and a strainer skimmer (used for lowering food into oil and removing excess oil while cooking) to deep fry at home, or if you have the space in your kitchen, opt for a countertop deep fryer. The cook times of both deep and air fryers differ depending on what you’re cooking. While deep fryers offer traditional flavor, air fryers and ovens with air fry features can provide more variety. Air fryers can be a healthier choice, using less oil and producing lighter meals compared to deep frying.",
+            "score": 0.9999151,
+            "raw_content": null
+          },
+          {
+            "url": "https://www.whirlpool.com/blog/kitchen/air-fryer-vs-deep-fryer.html",
+            "title": "Air Fryer vs. Deep Fryer: Comparison Guide - Whirlpool",
+            "content": "Previously, the only way to achieve the crispy goodness of your family’s favorite fried foods was to use a deep fryer—but air fryers have emerged as a viable frying option. Read this guide to learn more about the difference between air fryers vs deep fryers and which appliance is right for you. The difference between an air fryer and a deep fryer lies primarily with the process of frying food. Whereas deep fryers submerge food in batches of oil to achieve a crispy texture, air fryers use a modest amount of oil, relying instead on an internal heating element and airflow to achieve a delicious effect. When thinking about the taste difference between air frying and deep frying, it is also important to think about how the food is cooked. You can enjoy crispy and delicious low-oil versions of deep fried foods with a Whirlpool® range with air fry.",
+            "score": 0.99988854,
+            "raw_content": null
+          },
+          {
+            "url": "https://mommygearest.com/whats-better-air-fryer-vs-deep-fryer/",
+            "title": "What's better: air fryer vs. deep fryer? - Mommy Gearest",
+            "content": "A deep fryer relies on heated oil to cook food, but an air fryer uses a sort of “super-convection” system of hot air circulation to fry food.",
+            "score": 0.99983263,
+            "raw_content": null
+          }
+        ],
+        "response_time": 1.02,
+        "request_id": "8fcbd8e8-bd51-42c4-a7e1-9f11e202f625"
+      },
+      {
+        "query": "Onion carrot fiber content glycemic",
+        "follow_up_questions": null,
+        "answer": "Onions and carrots have low glycemic indexes and high fiber content, which help slow blood sugar spikes. Raw carrots have a glycemic index of 16. Fiber in both vegetables aids in gradual digestion.",
+        "images": [],
+        "results": [
+          {
+            "url": "https://www.webmd.com/diabetes/carrots-effect-on-blood-sugar",
+            "title": "Carrots and Their Effect on Blood Sugar - Diabetes",
+            "content": "Carrots are safe for blood sugar, with raw carrots having a GI of 16 and a low glycemic load of 8 for two small carrots. Fiber helps slow sugar",
+            "score": 0.9973888,
+            "raw_content": null
+          },
+          {
+            "url": "https://www.verywellhealth.com/carrots-and-blood-sugar-11842782",
+            "title": "What Happens to Your Blood Sugar When You Eat Carrots ...",
+            "content": "Due to their fiber and water content, carrots digest slowly, preventing sharp blood sugar spikes. Research suggests that diets rich in low-GI",
+            "score": 0.9969246,
+            "raw_content": null
+          },
+          {
+            "url": "https://www.signos.com/foods/carrot-glycemic-index",
+            "title": "Carrot Glycemic Index: Health Benefits - Signos",
+            "content": "Carrots have a low glycemic index, typically ranging between 16 and 41. Eating raw carrots results in a slower and more gradual increase in blood sugar.",
+            "score": 0.99690056,
+            "raw_content": null
+          }
+        ],
+        "response_time": 1.24,
+        "request_id": "77b7df1d-6f27-44b2-a856-57e42872de44"
+      },
+      {
+        "query": "Calcium fortified soya yogurt diabetes",
+        "follow_up_questions": null,
+        "answer": "Calcium-fortified soya yogurt can help manage diabetes by improving glycemic control when fortified with vitamin D. Regular consumption may benefit type 2 diabetes patients.",
+        "images": [],
+        "results": [
+          {
+            "url": "https://ufhealth.org/conditions-and-treatments/diabetes/nutrition-corner",
+            "title": "Nutrition Corner - Diabetes",
+            "content": "It is usually necessary to obtain the calcium the body needs through supplementation and/or through the intake of calcium fortified cereals,",
+            "score": 0.99970406,
+            "raw_content": null
+          },
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/21289226/",
+            "title": "or vitamin D + calcium-fortified yogurt drink improved ...",
+            "content": "by B Nikooyeh · 2011 · Cited by 416 — Conclusion: Daily intake of a vitamin D-fortified yogurt drink, either with or without added calcium, improved glycemic status in T2D patients. This trial was",
+            "score": 0.99961996,
+            "raw_content": null
+          },
+          {
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S0261561415000722",
+            "title": "Effects of vitamin D-fortified low fat yogurt on glycemic ...",
+            "content": "by T Jafari · 2016 · Cited by 116 — Nikooyeh et al. Daily consumption of vitamin D- or vitaminD-calcium-fortified yogurt drink improved glycemic control in patients with type 2 diabetes: a",
+            "score": 0.99936384,
+            "raw_content": null
+          }
+        ],
+        "response_time": 1.4,
+        "request_id": "3ca42bff-dbb8-4f72-a5c3-f41d01ea5d6c"
+      },
+      {
+        "query": "Low calorie cooking spray 180°C",
+        "follow_up_questions": null,
+        "answer": "Low calorie cooking spray can be used at 180°C (350°F) for baking. It helps to lightly coat dishes without adding extra calories. Frylight is a popular brand for this purpose.",
+        "images": [],
+        "results": [
+          {
+            "url": "https://www.tiktok.com/@tonichealth/video/7310245010811751712?lang=en",
+            "title": "Low Calorie Frylight Cooking Spray: Healthy Olive Oil Alternative",
+            "content": "Low Calorie Frylight Cooking Spray: Healthy Olive Oil Alternative ... 180°C (350°F). • Bake for 30 minutes or until the top is golden",
+            "score": 0.99998903,
+            "raw_content": null
+          },
+          {
+            "url": "https://www.facebook.com/groups/947372479861231/posts/1473588890572918/",
+            "title": "Tortilla wrap egg bake recipe with cottage cheese - Facebook",
+            "content": "... 180°C ... low-calorie spray. Press the tortilla into the dish to form the base, folding edges if needed. Spray lightly with cooking spray.",
+            "score": 0.9999505,
+            "raw_content": null
+          },
+          {
+            "url": "https://www.facebook.com/groups/663641865751252/posts/1092369326211835/",
+            "title": "e.g. plum tomatoes, red onion, baby spinach 30g reduced-fat ...",
+            "content": "... 180°C (fan 160°C) / Gas 4. Spray a small ovenproof dish (around 18 ... Spray lightly with cooking spray. In a bowl, whisk the eggs and",
+            "score": 0.99977833,
+            "raw_content": null
+          }
+        ],
+        "response_time": 2.02,
+        "request_id": "1a3a1da2-b21f-4d49-bb51-7b6b44a4f443"
+      }
+    ]
+  },
+  "attributes_json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.call.id\":{},\"gen_ai.tool.name\":{},\"tool_arguments\":{\"type\":\"object\"},\"tool_response\":{\"type\":\"object\"}}}",
+  "otel_scope_attributes": {},
+  "service_namespace": "",
+  "service_instance_id": "4780672f737c4eceb2d908a7b922395c",
+  "process_pid": 97665,
+  "otel_resource_attributes": {
+    "process.pid": 97665,
+    "process.runtime.description": "3.12.3 (main, Nov  6 2025, 13:44:16) [GCC 13.3.0]",
+    "process.runtime.name": "cpython",
+    "process.runtime.version": "3.12.3",
+    "service.instance.id": "4780672f737c4eceb2d908a7b922395c",
+    "service.name": "unknown_service",
+    "service.version": "a88202403990a35bdfe626aa62e744d8a37c5b5f",
+    "telemetry.sdk.language": "python",
+    "telemetry.sdk.name": "opentelemetry",
+    "telemetry.sdk.version": "1.39.0"
+  },
+  "telemetry_sdk_name": "opentelemetry",
+  "telemetry_sdk_language": "python",
+  "telemetry_sdk_version": "1.39.0",
+  "deployment_environment": null
+}
