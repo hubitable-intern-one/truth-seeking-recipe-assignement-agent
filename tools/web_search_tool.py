@@ -4,6 +4,7 @@ from typing import List, Dict, Any
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from tavily import TavilyClient
 from pydantic_ai import RunContext
+from tools.ranking_tool import RankingTool
 
 class ParallelWebSearchTool:
     """Optimized web search tool using ThreadPoolExecutor for true parallel execution."""
@@ -29,11 +30,22 @@ class ParallelWebSearchTool:
             resp = self.client.search(
                 query,
                 max_results=self.max_results,
-                include_answer=True,
-                search_depth="basic"  # Faster than "advanced"
+                include_answer=False, # Disable answer to save tokens
+                search_depth="basic" 
             )
-            self._cache[cache_key] = resp
-            return resp
+            # Filter response to save tokens
+            filtered = {
+                "results": [
+                    {
+                        "title": r.get("title"),
+                        "url": r.get("url"),
+                        "content": r.get("content")
+                    }
+                    for r in resp.get("results", [])
+                ]
+            }
+            self._cache[cache_key] = filtered
+            return filtered
         except Exception as e:
             return {"error": f"Search failed for '{query}': {str(e)}", "results": []}
 
@@ -117,6 +129,7 @@ class BatchWebSearchTool:
             max_results=max_results,
             max_workers=max_workers
         )
+        self.ranker = RankingTool()
     
     async def __call__(self, ctx: RunContext, queries: List[str]) -> List[Dict[str, Any]]:
         """
@@ -129,7 +142,23 @@ class BatchWebSearchTool:
         Returns:
             List of search results, one per query
         """
-        return await self.parallel_tool.search_parallel(queries)
+        # Fetch results
+        results_list = await self.parallel_tool.search_parallel(queries)
+        
+        # Rank and filter top 5 for each query results
+        ranked_results = []
+        for i, results_dict in enumerate(results_list):
+             # Ensure we have a list of result items
+            if isinstance(results_dict, dict) and "results" in results_dict:
+                items = results_dict["results"]
+                # Rank top 5
+                top_5 = self.ranker.rank_results(queries[i], items, top_k=5)
+                results_dict["results"] = top_5
+                ranked_results.append(results_dict)
+            else:
+                ranked_results.append(results_dict)
+
+        return ranked_results
 
 
 class OptimizedBatchSearchTool:
@@ -141,6 +170,7 @@ class OptimizedBatchSearchTool:
         self.max_workers = max_workers
         self._cache = {}
         self._executor = ThreadPoolExecutor(max_workers=max_workers)
+        self.ranker = RankingTool()
     
     def _optimize_query(self, query: str) -> str:
         """Optimize query for faster search (3-5 keywords)."""
@@ -166,11 +196,26 @@ class OptimizedBatchSearchTool:
                 resp = self.client.search(
                     query,
                     max_results=self.max_results,
-                    include_answer=True,
+                    include_answer=False,
                     search_depth="basic"
                 )
-                self._cache[cache_key] = resp
-                results.append(resp)
+                filtered = {
+                    "results": [
+                        {
+                            "title": r.get("title"),
+                            "url": r.get("url"),
+                            "content": r.get("content")
+                        }
+                        for r in resp.get("results", [])
+                    ]
+                }
+                
+                # Rank top 5
+                if "results" in filtered:
+                     filtered["results"] = self.ranker.rank_results(query, filtered["results"], top_k=5)
+                     
+                self._cache[cache_key] = filtered
+                results.append(filtered)
             except Exception as e:
                 results.append({
                     "error": f"Search failed for '{query}': {str(e)}",
@@ -229,6 +274,52 @@ class OptimizedBatchSearchTool:
         
         # Gather all results
         batch_results = await asyncio.gather(*futures, return_exceptions=True)
+        
+        # Flatten and Rank
+        all_results = []
+        
+        # Mapping back to queries is tricky here because of batching + flattening
+        # Simplification: We will rank whatever we get if we can match query?
+        # Actually OptimizedBatchSearchTool structure as written returns a flat list of results?
+        # No, `_batch_search_sync` returns a List[Dict].
+        
+        flattened_results = []
+        for batch_res in batch_results:
+             if isinstance(batch_res, list):
+                 flattened_results.extend(batch_res)
+             elif isinstance(batch_res, Exception):
+                 # handle error
+                 pass
+
+        # We need to re-associate results with queries to rank them.
+        # But wait, the current `OptimizedBatchSearchTool` returns list of Tavily response dicts (containing "results": [...])
+        # We need to rank inside `_batch_search_sync` or here.
+        # But `_batch_search_sync` takes a batch of queries.
+        
+        # Let's verify `batch_results` structure. It is a list of lists of dicts (batches of results).
+        
+        final_results = []
+        query_idx = 0
+        
+        for batch_res in batch_results:
+            if isinstance(batch_res, Exception):
+                # How many queries were in this batch?
+                # This is hard to track without index.
+                # Simplified: Just append error result
+                 continue
+            
+            for res in batch_res:
+                # res is a search result dict for a specific query
+                # We need the query to rank.
+                # CAUTION: We don't have the query cleanly mapped here in current loop structure.
+                # However, we can hack it: Tavily response usually contains the 'query' if enabled? No.
+                
+                # BETTER APPROACH: Do ranking inside `_batch_search_sync`.
+                pass
+                
+        # Re-doing the replacement to include ranking inside `_batch_search_sync` is safer for mapping.
+        return await asyncio.gather(*futures, return_exceptions=True)
+
         
         # Flatten results
         all_results = []

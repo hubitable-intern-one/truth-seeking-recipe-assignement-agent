@@ -265,7 +265,7 @@ The output should be a list of 5 objects, one for each search query.
                 "link_status": <true or false>,
                 "contains_notes_in_content": <true or false>
             },
-            ... (ensure exactly 10 items)
+            ... (ensure exactly 5 items)
         ]
     },
     ... (repeat for all 5 queries)

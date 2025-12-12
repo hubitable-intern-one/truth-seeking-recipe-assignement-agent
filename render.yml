@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: rq-worker
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python trigger_agent_jobs.py && python worker.py"

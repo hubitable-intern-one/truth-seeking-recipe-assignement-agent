@@ -18,6 +18,11 @@ class Evidence(BaseModel):
     )
 
 
+class EvidenceQuery(BaseModel):
+    query: str = Field(..., description="The exact search query used")
+    evidence_items: List[Evidence] = Field(..., description="List of evidence items found")
+
+
 class UserScenario(BaseModel):
     scenario: str = Field(..., description="User scenario text")
     
@@ -31,6 +36,6 @@ class UserDetails(BaseModel):
 
 class RecipeContext(BaseModel):
     title: str = Field(..., description="Recipe title")
-    evidence: List[Evidence] = Field(default_factory=list)
+    evidence: List[EvidenceQuery] = Field(default_factory=list)
     user_scenarios: List[UserScenario] = Field(default_factory=list)
     user_details: List[UserDetails] = Field(default_factory=list)

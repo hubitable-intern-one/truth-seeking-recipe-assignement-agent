@@ -2,7 +2,7 @@ import os
 import asyncio
 from typing import List
 from pydantic_ai import Agent, RunContext
-from deps.dependencies import get_dependencies, AgentDependencies
+from deps.dependencies import get_dependencies, AgentDependencies, cleanup_dependencies
 from models.recipe_context import Evidence
 from prompts.agent import AgentPrompt
 from tools.web_search_tool import (
@@ -31,20 +31,19 @@ truth_agent = Agent(
     retries=1,
 )
 
-# Initialize tools with ThreadPoolExecutor (true parallelism)
 # max_workers=20 means 20 searches can run simultaneously
 parallel_tool = ParallelWebSearchTool(
-    max_results=3,
+    max_results=10,
     max_workers=20  # ThreadPoolExecutor with 20 threads
 )
 
 batch_tool = BatchWebSearchTool(
-    max_results=3,
+    max_results=10,
     max_workers=20
 )
 
 optimized_tool = OptimizedBatchSearchTool(
-    max_results=3,
+    max_results=10,
     max_workers=20
 )
 
@@ -137,8 +136,28 @@ async def benchmark_search():
     print("\n" + "="*60 + "\n")
 
 
+async def analyze_recipe(recipe_text: str) -> str:
+    """
+    Analyze a recipe using the truth seeking agent.
+    
+    Args:
+        recipe_text: The full text of the recipe and user context.
+        
+    Returns:
+        The JSON analysis result string.
+    """
+    deps = await get_dependencies()
+    try:
+        result = await truth_agent.run(recipe_text, deps=deps)
+        return result.data
+    finally:
+        await cleanup_dependencies(deps)
+
 async def main():
-    deps = await get_dependencies() 
+    # Only import cleanup if running as script to avoid circular import issues if implemented elsewhere
+    # But since we have cleanup_dependencies in deps, we can use it.
+    from deps.dependencies import  cleanup_dependencies 
+    
     recipe_text = """
 Title: Baked Lemon Herb Salmon
 
@@ -166,35 +185,22 @@ Preparation Steps:
 Nutrition (per serving): Calories: 280, Protein: 25g, Carbs: 2g, Fat: 18g
 """  
     
-    
-    
     print("Starting analysis with ThreadPoolExecutor...")
     start_time = asyncio.get_event_loop().time()
     
-    result = await truth_agent.run(
-        f"Based on this recipe, explain why it is suitable for someone with diabetes.\n\n{recipe_text}",
-        deps=deps
-    )
+    # Construct the full prompt context for the test
+    full_prompt = f"Based on this recipe, explain why it is suitable for someone with diabetes.\n\n{recipe_text}"
+    
+    output = await analyze_recipe(full_prompt)
     
     end_time = asyncio.get_event_loop().time()
     elapsed = end_time - start_time
     
     print(f"\n{'='*60}")
     print(f"⚡ EXECUTION TIME: {elapsed:.2f} seconds")
-    
-    if elapsed < 1.0:
-        print(f"🚀 EXCELLENT: Sub-1-second performance achieved!")
-    elif elapsed < 2.0:
-        print(f"✅ GOOD: Under 2 seconds")
-    elif elapsed < 3.0:
-        print(f"👍 ACCEPTABLE: Under 3 seconds")
-    else:
-        print(f"⚠️  SLOW: Consider checking network or API performance")
-    
     print(f"{'='*60}\n")
-    print(result.output)
+    print(output)
 
 
 if __name__ == "__main__":
-    # To run benchmark: asyncio.run(benchmark_search())
     asyncio.run(main())
