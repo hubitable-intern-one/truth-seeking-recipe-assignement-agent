@@ -144,12 +144,10 @@ class OptimizedBatchSearchTool:
         for idx, query in queries_with_indices:
             cache_key = query.lower().strip()
             
-            # Check cache
             if cache_key in self._cache:
                 results.append((idx, self._cache[cache_key]))
                 continue
             
-            # Execute search + rank
             try:
                 resp = self.client.search(
                     query,
@@ -167,7 +165,7 @@ class OptimizedBatchSearchTool:
                     for r in resp.get("results", [])
                 ]
                 
-                # Rank immediately
+                
                 ranked = self.ranker.rank_results(query, raw_results, top_k=5)
                 filtered = {"results": ranked}
                 
