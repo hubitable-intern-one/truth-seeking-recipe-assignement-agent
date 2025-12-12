@@ -1,6 +1,6 @@
 import os
 import redis
-from rq import Worker, Queue, Connection
+from rq import Worker, Queue
 from dotenv import load_dotenv
 
 # Load env vars
@@ -16,10 +16,12 @@ def start_worker():
 
     conn = redis.from_url(REDIS_URL)
 
-    with Connection(conn):
-        print("Starting RQ worker...")
-        worker = Worker(list(map(Queue, listen)))
-        worker.work()
+    print("Starting RQ worker...")
+    # Instantiate queues with the connection
+    queues = [Queue(name, connection=conn) for name in listen]
+    # Instantiate worker with the connection
+    worker = Worker(queues, connection=conn)
+    worker.work()
 
 if __name__ == "__main__":
     start_worker()

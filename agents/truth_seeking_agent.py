@@ -7,7 +7,7 @@ from models.recipe_context import Evidence
 from prompts.agent import AgentPrompt
 from tools.web_search_tool import (
     ParallelWebSearchTool, 
-    BatchWebSearchTool,
+    WebSearchTool,
     OptimizedBatchSearchTool
 )
 import logfire
@@ -37,7 +37,7 @@ parallel_tool = ParallelWebSearchTool(
     max_workers=20  # ThreadPoolExecutor with 20 threads
 )
 
-batch_tool = BatchWebSearchTool(
+batch_tool = WebSearchTool(
     max_results=10,
     max_workers=20
 )

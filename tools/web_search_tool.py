@@ -121,7 +121,7 @@ class ParallelWebSearchTool:
         self._executor.shutdown(wait=False)
 
 
-class BatchWebSearchTool:
+class WebSearchTool:
     """Tool for batching multiple searches with ThreadPoolExecutor."""
     
     def __init__(self, max_results=10, max_workers=20):
