@@ -5,10 +5,7 @@ from pydantic_ai import Agent, RunContext
 from deps.dependencies import get_dependencies, AgentDependencies, cleanup_dependencies
 from models.recipe_context import Evidence
 from prompts.agent import AgentPrompt
-from tools.web_search_tool import (
-    ParallelWebSearchTool,
-    OptimizedBatchSearchTool
-)
+from tools.web_search_tool import OptimizedBatchSearchTool
 import logfire
 
 
@@ -31,12 +28,10 @@ truth_agent = Agent(
 )
 
 
-
 optimized_tool = OptimizedBatchSearchTool(
     max_results=10,
     max_workers=20
 )
-
 
 
 

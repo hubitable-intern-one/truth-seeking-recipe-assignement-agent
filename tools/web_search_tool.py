@@ -46,7 +46,6 @@ class ParallelWebSearchTool:
                 for r in resp.get("results", [])
             ]
             
-            # Rank immediately (in same thread)
             ranked_results = self.ranker.rank_results(query, results, top_k=5)
             
             filtered = {"results": ranked_results}
