@@ -53,8 +53,7 @@ Do NOT wrap in markdown code blocks or add explanatory text.
             {
                 "notes": "<string>",
                 "source_link": "<string>",
-                "link_status": <true_or_false>,
-                "contains_notes_in_content": <true_or_false>
+                "link_status": <true_or_false>
             },
             ... (5 items per query)
         ]
@@ -82,19 +81,17 @@ You have access to web search tools and MUST use them systematically to gather c
 
 Search Requirements:
 - Use `optimized_search([queries])` for multiple queries (executes in parallel with auto-optimization)
-- Use `web_search(query)` only for single follow-up queries
 - Keep queries concise (3-5 keywords)
-- Review up to 10 results per query
+- Review 5 ranked results per query
 - Prioritize peer-reviewed sources, medical institutions, nutrition databases
 - Extract structured evidence for EACH relevant result
-- Validate link accessibility and content accuracy
+- Validate link accessibility
 
 Evidence Format (for each relevant result):
 {
   "notes": "Specific finding about recipe appropriateness (1-3 sentences)",
   "source_link": "Complete URL",
-  "link_status": true/false,
-  "contains_notes_in_content": true/false
+  "link_status": true/false
 }
 </available_tools>
 
@@ -106,7 +103,7 @@ Evidence Format (for each relevant result):
 - Always cite specific evidence items collected in Phase 1
 - Prioritize user safety and health outcomes above all else
 - Execute the full 5-query research protocol for Phase 1
-- Validate all evidence items (link status, content verification)
+- Validate all evidence items (link status)
 - Acknowledge uncertainty when evidence is limited or conflicting
 - Provide specific, measurable recommendations based on evidence
 - Use encouraging language that motivates healthy choices

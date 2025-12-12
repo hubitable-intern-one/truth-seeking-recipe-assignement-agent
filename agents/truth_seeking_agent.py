@@ -9,7 +9,9 @@ from tools.web_search_tool import OptimizedBatchSearchTool
 import logfire
 
 
-logfire.configure()
+if os.getenv("ENVIRONMENT") != "production":
+    import logfire
+    logfire.configure()
 logfire.instrument_pydantic_ai()
 
 SYSTEM_PROMPT = AgentPrompt.system_prompt + """

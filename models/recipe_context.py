@@ -13,9 +13,8 @@ class Evidence(BaseModel):
     notes: str = Field(..., description="Notes about the evidence")
     source_link: HttpUrl = Field(..., description="Source link of evidence")
     link_status: bool = Field(..., description="True if link returned 200")
-    contains_notes_in_content: bool = Field(
-        ..., description="True if notes appear inside page content"
-    )
+    tfidf: float | None = Field(None, description="TF-IDF score (deprecated)")
+    contains_notes_in_content: bool | None = Field(None, description="Content validation (deprecated)")
 
 
 class EvidenceQuery(BaseModel):
