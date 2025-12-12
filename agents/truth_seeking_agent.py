@@ -30,29 +30,13 @@ truth_agent = Agent(
     retries=1,
 )
 
-# max_workers=20 means 20 searches can run simultaneously
-parallel_tool = ParallelWebSearchTool(
-    max_results=10,
-    max_workers=20  # ThreadPoolExecutor with 20 threads
-)
+
 
 optimized_tool = OptimizedBatchSearchTool(
     max_results=10,
     max_workers=20
 )
 
-@truth_agent.tool
-async def web_search(ctx: RunContext[AgentDependencies], query: str) -> dict:
-    """
-    Fast single query search using ThreadPoolExecutor.
-    
-    Args:
-        query: Search query (3-5 keywords recommended)
-        
-    Returns:
-        Search results
-    """
-    return await parallel_tool(ctx, query)
 
 
 

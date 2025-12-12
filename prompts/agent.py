@@ -30,8 +30,8 @@ Create  5 targeted search queries to gather proof about when this recipe categor
 
 STEP 3: Execute Searches and Extract proof
 STEP 3: Execute Searches and Extract proof
-You MUST use `batch_web_search` or `optimized_search` to execute ALL 5 queries in a single tool call.
-Do NOT use `web_search` sequentially for these initial queries.
+You MUST use `optimized_search` to execute ALL 5 queries in a single tool call.
+
 
 
 STEP 4: Validate and Structure Proof
