@@ -5,50 +5,59 @@ from dotenv import load_dotenv
 from extensions.mongo import meals_collection, recipe_contexts_collection
 from jobs import process_meal
 
-# Load env vars
+
 load_dotenv()
 
 def trigger_jobs():
     """
-    Scans MongoDB for meals that haven't been processed yet 
-    and enqueues them for the agent.
+    Uses an aggregation pipeline to fetch meals that do NOT have
+    a matching recipe_context. 
     """
+
     REDIS_URL = os.getenv("REDIS_URL")
     if not REDIS_URL:
         print("Error: REDIS_URL not set in .env")
         return
 
-    # Connect to Redis
+    # Connect to Redis queue
     conn = redis.from_url(REDIS_URL)
-    q = Queue(connection=conn) # Default queue
+    q = Queue(connection=conn)
 
-    print("Checking for meals to process...")
-    
-    # 1. Get all meal IDs
-    # In a real large-scale app, we would use a more efficient query or status field.
-    # Here we simply check if a corresponding recipe_context exists.
-    
-    meals_cursor = meals_collection.find({}, {"_id": 1, "title": 1})
-    
+    print("Checking for unprocessed meals...")
+
+
+    pipeline = [
+        {
+            "$lookup": {
+                "from": "recipe_contexts",
+                "localField": "_id",
+                "foreignField": "meal_id",
+                "as": "ctx"
+            }
+        },
+        {
+            "$match": {
+                "ctx": {"$size": 0}   
+            }
+        },
+        {
+            "$project": {
+                "_id": 1,
+                "title": 1
+            }
+        }
+    ]
+
+    unprocessed_meals = meals_collection.aggregate(pipeline)
     count_enqueued = 0
-    
-    for meal in meals_cursor:
+
+    for meal in unprocessed_meals:
         meal_id = meal["_id"]
-        
-        # Check if already processed
-        # exists = recipe_contexts_collection.count_documents({"meal_id": meal_id})
-        # Optimization: We could cache processed IDs or use $lookup, but for now simple check is fine.
-        
-        # Using simple find_one for check
-        if recipe_contexts_collection.find_one({"meal_id": meal_id}):
-             # print(f"Skipping {meal.get('title')}: Already processed")
-             continue
-             
-        # Enqueue job
+
         print(f"Enqueueing meal: {meal.get('title', meal_id)}")
-        q.enqueue(process_meal, meal_id, job_timeout='10m') # 10 min timeout for agent
+        q.enqueue(process_meal, meal_id, job_timeout='10m')
         count_enqueued += 1
-        
+
     print(f"Trigger complete. Enqueued {count_enqueued} new jobs.")
 
 if __name__ == "__main__":

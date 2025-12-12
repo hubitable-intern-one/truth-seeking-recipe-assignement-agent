@@ -97,8 +97,6 @@ async def optimized_search(
     """
     return await optimized_tool(ctx, queries, optimize=True)
 
-
-async def benchmark_search():
     """Benchmark different search methods."""
     deps = await get_dependencies()
     
@@ -135,7 +133,6 @@ async def benchmark_search():
     
     print("\n" + "="*60 + "\n")
 
-
 async def analyze_recipe(recipe_text: str) -> str:
     """
     Analyze a recipe using the truth seeking agent.
@@ -149,7 +146,7 @@ async def analyze_recipe(recipe_text: str) -> str:
     deps = await get_dependencies()
     try:
         result = await truth_agent.run(recipe_text, deps=deps)
-        return result.data
+        return result.output
     finally:
         await cleanup_dependencies(deps)
 

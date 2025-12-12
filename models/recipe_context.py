@@ -20,12 +20,14 @@ class Evidence(BaseModel):
 
 class EvidenceQuery(BaseModel):
     query: str = Field(..., description="The exact search query used")
-    evidence_items: List[Evidence] = Field(..., description="List of evidence items found")
+    evidence_items: List[Evidence] = Field(
+        ..., description="List of evidence items found"
+    )
 
 
 class UserScenario(BaseModel):
     scenario: str = Field(..., description="User scenario text")
-    
+
 
 class UserDetails(BaseModel):
     height: float = Field(..., description="Height in cm or meters")
@@ -35,6 +37,9 @@ class UserDetails(BaseModel):
 
 
 class RecipeContext(BaseModel):
+    meal_id: str = Field(
+        ..., description="ID of the meal this context belongs to (MongoDB _id)"
+    )
     title: str = Field(..., description="Recipe title")
     evidence: List[EvidenceQuery] = Field(default_factory=list)
     user_scenarios: List[UserScenario] = Field(default_factory=list)
