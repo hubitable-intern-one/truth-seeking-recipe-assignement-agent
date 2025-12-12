@@ -59,15 +59,7 @@ STEP 3: Execute Searches and Extract proof
 STEP 3: Execute Searches and Extract proof
 You MUST use `batch_web_search` or `optimized_search` to execute ALL 5 queries in a single tool call.
 Do NOT use `web_search` sequentially for these initial queries.
-    
-1. Call `batch_web_search(queries=[q1, q2, q3, q4, q5])`
-2. Review the results for all queries from the single response
-2. Review up to 10 results per query
-3. For EACH relevant result, extract structured evidence:
-   - notes: Specific findings about recipe category appropriateness
-   - source_link: URL of the source
-   - link_status: Whether the link is accessible (true/false)
-   - contains_notes_in_content: Whether the notes appear in the page content (true/false)
+
 
 STEP 4: Validate and Structure Proof
 For each piece of proof collected:
