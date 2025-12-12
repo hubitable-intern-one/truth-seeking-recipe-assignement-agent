@@ -6,8 +6,7 @@ from deps.dependencies import get_dependencies, AgentDependencies, cleanup_depen
 from models.recipe_context import Evidence
 from prompts.agent import AgentPrompt
 from tools.web_search_tool import (
-    ParallelWebSearchTool, 
-    WebSearchTool,
+    ParallelWebSearchTool,
     OptimizedBatchSearchTool
 )
 import logfire
@@ -19,7 +18,7 @@ logfire.instrument_pydantic_ai()
 SYSTEM_PROMPT = AgentPrompt.system_prompt + """
 
 EFFICIENCY RULES:
-- Use batch_web_search or optimized_search for multiple queries (TRUE parallel execution)
+- Use optimized_search for multiple queries (TRUE parallel execution with auto-optimization)
 - Keep queries concise (3-5 keywords)
 - Batch related searches together
 """
@@ -35,11 +34,6 @@ truth_agent = Agent(
 parallel_tool = ParallelWebSearchTool(
     max_results=10,
     max_workers=20  # ThreadPoolExecutor with 20 threads
-)
-
-batch_tool = WebSearchTool(
-    max_results=10,
-    max_workers=20
 )
 
 optimized_tool = OptimizedBatchSearchTool(
@@ -60,25 +54,7 @@ async def web_search(ctx: RunContext[AgentDependencies], query: str) -> dict:
     """
     return await parallel_tool(ctx, query)
 
-@truth_agent.tool
-async def batch_web_search(
-    ctx: RunContext[AgentDependencies], 
-    queries: List[str]
-) -> List[dict]:
-    """
-    ULTRA-FAST parallel search using ThreadPoolExecutor.
-    All queries execute simultaneously in separate threads.
-    
-    Args:
-        queries: List of search queries (3-5 keywords each)
-        
-    Returns:
-        List of results in same order
-        
-    Example:
-        ["salmon diabetes benefits", "omega-3 fatty acids", "low GI fish"]
-    """
-    return await batch_tool(ctx, queries)
+
 
 @truth_agent.tool
 async def optimized_search(
