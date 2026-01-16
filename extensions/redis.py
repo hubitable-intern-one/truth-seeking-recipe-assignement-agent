@@ -2,45 +2,65 @@ import os
 import redis
 from dotenv import load_dotenv
 
-# Load environment variables
 load_dotenv()
 
-# Get Redis configuration from environment
-REDIS_URL = os.getenv("REDIS_URL")
+# Get Redis configuration
+REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
 
-# Create Redis client
-redis_client = redis.from_url(REDIS_URL, decode_responses=True)
+def get_redis_connection():
+    """
+    Returns a standard Redis connection for RQ to use.
+    """
+    return redis.from_url(REDIS_URL, decode_responses=False) # RQ prefers False (bytes) usually, but True works often too. Stick to default.
 
-# Queue name for recipe processing jobs
-QUEUE_NAME = "recipe_agent_jobs"
+# DELETE the enqueue_recipe, dequeue_recipe, and peek_queue functions.
+# RQ handles all of that internally.
 
-# Test connection
-def test_connection():
-    """Test Redis connection"""
-    try:
-        redis_client.ping()
-        return True
-    except Exception as e:
-        print(f"Redis connection failed: {e}")
-        return False
+#! Old Code manually queues, we'll use Redis Queue instead since it handles better
 
-# Helper functions for queue operations
-def enqueue_recipe(recipe_id):
-    """Add a recipe ID to the processing queue"""
-    return redis_client.rpush(QUEUE_NAME, recipe_id)
+# import os
+# import redis
+# from dotenv import load_dotenv
 
-def dequeue_recipe():
-    """Get the next recipe ID from the queue (blocking)"""
-    return redis_client.blpop(QUEUE_NAME, timeout=0)
+# # Load environment variables
+# load_dotenv()
 
-def get_queue_length():
-    """Get the current length of the queue"""
-    return redis_client.llen(QUEUE_NAME)
+# # Get Redis configuration from environment
+# REDIS_URL = os.getenv("REDIS_URL")
 
-def peek_queue(count=10):
-    """Peek at the first N items in the queue without removing them"""
-    return redis_client.lrange(QUEUE_NAME, 0, count - 1)
+# # Create Redis client
+# redis_client = redis.from_url(REDIS_URL, decode_responses=True)
 
-def clear_queue():
-    """Clear all items from the queue"""
-    return redis_client.delete(QUEUE_NAME)
+# # Queue name for recipe processing jobs
+# QUEUE_NAME = "recipe_agent_jobs"
+
+# # Test connection
+# def test_connection():
+#     """Test Redis connection"""
+#     try:
+#         redis_client.ping()
+#         return True
+#     except Exception as e:
+#         print(f"Redis connection failed: {e}")
+#         return False
+
+# # Helper functions for queue operations
+# def enqueue_recipe(recipe_id):
+#     """Add a recipe ID to the processing queue"""
+#     return redis_client.rpush(QUEUE_NAME, recipe_id)
+
+# def dequeue_recipe():
+#     """Get the next recipe ID from the queue (blocking)"""
+#     return redis_client.blpop(QUEUE_NAME, timeout=0)
+
+# def get_queue_length():
+#     """Get the current length of the queue"""
+#     return redis_client.llen(QUEUE_NAME)
+
+# def peek_queue(count=10):
+#     """Peek at the first N items in the queue without removing them"""
+#     return redis_client.lrange(QUEUE_NAME, 0, count - 1)
+
+# def clear_queue():
+#     """Clear all items from the queue"""
+#     return redis_client.delete(QUEUE_NAME)
