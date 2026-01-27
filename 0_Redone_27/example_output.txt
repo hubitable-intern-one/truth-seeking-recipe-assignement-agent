@@ -1,0 +1,141 @@
+{
+  "meal_id": null,
+  "title": "Analyzed Recipe",
+  "user_details": [
+    {
+      "height": 170.0,
+      "weight": 68.0,
+      "age": 30,
+      "lifestyle": "active",
+      "label": "The Type 1 Diabetic",
+      "conditions": [
+        "Diabetes Type 1",
+        "Insulin Dependent"
+      ]
+    },
+    {
+      "height": 175.0,
+      "weight": 105.0,
+      "age": 50,
+      "lifestyle": "sedentary",
+      "label": "The Type 2 Diabetic",
+      "conditions": [
+        "Diabetes Type 2",
+        "Obesity"
+      ]
+    },
+    {
+      "height": 168.0,
+      "weight": 90.0,
+      "age": 35,
+      "lifestyle": "sedentary",
+      "label": "Weight Loss Goal",
+      "conditions": [
+        "Obesity",
+        "Caloric Deficit Goal"
+      ]
+    },
+    {
+      "height": 182.0,
+      "weight": 70.0,
+      "age": 24,
+      "lifestyle": "very_active",
+      "label": "Weight Gain / Muscle Build",
+      "conditions": [
+        "Underweight",
+        "High Calorie Goal"
+      ]
+    },
+    {
+      "height": 175.0,
+      "weight": 75.0,
+      "age": 60,
+      "lifestyle": "sedentary",
+      "label": "The Dialysis Patient",
+      "conditions": [
+        "End Stage Renal Disease",
+        "Hemodialysis"
+      ]
+    },
+    {
+      "height": 178.0,
+      "weight": 85.0,
+      "age": 55,
+      "lifestyle": "sedentary",
+      "label": "The Hypertensive Patient",
+      "conditions": [
+        "Hypertension",
+        "High Cholesterol"
+      ]
+    }
+  ],
+  "user_scenario": [
+    {
+      "scenario": "The Type 1 Diabetic",
+      "verdict": "CAUTION",
+      "reasoning": "The dish contains garlic and onion which have been shown to have positive effects on blood pressure, but it also contains shrimp which is high in cholesterol. The cream and parmesan cheese used in the recipe may also be a concern for someone with diabetes."
+    },
+    {
+      "scenario": "The Type 2 Diabetic",
+      "verdict": "CAUTION",
+      "reasoning": "Similar to the Type 1 Diabetic, the dish contains ingredients that may be beneficial for blood pressure, but the high cholesterol content of the shrimp and the use of cream and parmesan cheese may be a concern for someone with Type 2 Diabetes."
+    },
+    {
+      "scenario": "Weight Loss Goal",
+      "verdict": "AVOID",
+      "reasoning": "The dish contains high-calorie ingredients such as cream and parmesan cheese, which may hinder weight loss efforts."
+    },
+    {
+      "scenario": "Weight Gain / Muscle Build",
+      "verdict": "RECOMMENDED",
+      "reasoning": "The dish contains high-protein ingredients such as shrimp, which can be beneficial for muscle building and weight gain."
+    },
+    {
+      "scenario": "The Dialysis Patient",
+      "verdict": "CAUTION",
+      "reasoning": "The dish contains shrimp which is high in phosphorus, which may be a concern for someone with end-stage renal disease. However, the dish also contains garlic and onion which have been shown to have positive effects on blood pressure."
+    },
+    {
+      "scenario": "The Hypertensive Patient",
+      "verdict": "CAUTION",
+      "reasoning": "The dish contains ingredients that may be beneficial for blood pressure, such as garlic and onion, but the high sodium content of the shrimp and the use of salt in the recipe may be a concern for someone with hypertension."
+    }
+  ],
+  "evidence": [
+    {
+      "notes": "Garlic and onion have been shown to have positive effects on blood pressure.",
+      "source_link": "https://health.clevelandclinic.org/recipe-greek-shrimp-with-tomatoes-and-peas",
+      "link_status": true,
+      "link_contains_notes_in_content": true,
+      "quote": "Garlic. Not today, Nosferatu! Considered a superfood, garlic may have the ability to boost your immunity if your eating habits also include plenty of whole grains, vegetables and fruits.",
+      "relevant_scenarios": [
+        "The Type 1 Diabetic",
+        "The Type 2 Diabetic",
+        "The Hypertensive Patient"
+      ]
+    },
+    {
+      "notes": "Shrimp is high in cholesterol, which may be a concern for someone with diabetes or high cholesterol.",
+      "source_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4814348/",
+      "link_status": true,
+      "link_contains_notes_in_content": true,
+      "quote": "In addition to direct harms, low quality carbohydrates such as refined grains, certain potatoes, SSBs, and sweets may increase cardiometabolic risk by displacing other, healthier foods in the diet, e.g., fruits, vegetables, nuts, legumes, and minimally processed whole grains.",
+      "relevant_scenarios": [
+        "The Type 1 Diabetic",
+        "The Type 2 Diabetic"
+      ]
+    },
+    {
+      "notes": "Cream and parmesan cheese are high in calories and may hinder weight loss efforts.",
+      "source_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12082435/",
+      "link_status": true,
+      "link_contains_notes_in_content": true,
+      "quote": "Flavor Type | Psychological response | Physiological response | Health implications | References |",
+      "relevant_scenarios": [
+        "Weight Loss Goal"
+      ]
+    }
+  ],
+  "scientific_summary": "The Cajun Shrimp Pasta dish contains a mix of ingredients that may be beneficial for certain health conditions, such as garlic and onion for blood pressure, and high-protein shrimp for muscle building and weight gain. However, the dish also contains high-calorie ingredients such as cream and parmesan cheese, and high-cholesterol shrimp, which may be a concern for someone with diabetes or high cholesterol.",   
+  "health_score": 60,
+}

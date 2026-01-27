@@ -1,9 +1,12 @@
 import os
-from pymongo import MongoClient
 import logging
+from pymongo import MongoClient
+from dotenv import load_dotenv
 
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://root:password@localhost:27017/")  #! Get Config from .env
-DB_NAME = os.getenv("MONGO_DB_NAME", "recipe_crawler") #!Change later on
+load_dotenv()
+
+MONGO_URI = os.getenv("MONGO_URI")
+DB_NAME = os.getenv("MONGO_DB_NAME", "recipe_crawler")
 
 try:
     client = MongoClient(MONGO_URI)
