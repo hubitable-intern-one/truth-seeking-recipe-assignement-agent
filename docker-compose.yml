@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # ----------------------------
+  # 1. MongoDB Service (Database)
+  # ----------------------------
+  mongodb:
+    image: mongo:8.0.17
+    container_name: mongo_db
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      # Initializes the root user on first startup
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - mongo_data:/data/db             # Persist data
+      - ./dump_folder:/backup_data      # For backups
+
+  # ----------------------------
+  # 2. Redis Service (Queue)
+  # ----------------------------
+  redis:
+    image: redis:alpine
+    container_name: redis_server
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data                # Persist queue
+
+  # ----------------------------
+  # 3. AI Worker ( Code)
+  # ----------------------------
+  worker:
+    build: .                            # Builds from your Dockerfile
+    container_name: ai_worker
+    command: python src/worker.py       # Starts listening automatically
+    env_file: .env                      # Loads API keys
+    depends_on:
+      - mongodb
+      - redis
+    volumes:
+      - ./src:/app/src                  # Live code updates
+
+volumes:
+  mongo_data:
+  redis_data:

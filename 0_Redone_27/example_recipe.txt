@@ -1,0 +1,154 @@
+{
+  "_id": {
+    "$oid": "6938306cbe5bd272752cab0d"
+  },
+  "type": "Dinner",
+  "title": "Cajun Shrimp Pasta",
+  "description": "Creamy Cajun shrimp pasta with bold spices, tender shrimp, and a soul-warming sauce. The perfect weeknight shrimp pasta recipe. Comforting but not too heavy! Find step-by-step photos and more recipe tips above.",
+  "prep_time": "10 min",
+  "cook_time": "25 min",
+  "ingredients": [
+    {
+      "item": "olive oil",
+      "portion": "1 tablespoon"
+    },
+    {
+      "item": "large shrimp",
+      "portion": "14 oz, 400 grams"
+    },
+    {
+      "item": "onion powder",
+      "portion": "1 teaspoon"
+    },
+    {
+      "item": "garlic powder",
+      "portion": "1 teaspoon"
+    },
+    {
+      "item": "paprika",
+      "portion": "1.5 teaspoon"
+    },
+    {
+      "item": "cayenne pepper",
+      "portion": "¼ teaspoon"
+    },
+    {
+      "item": "dried oregano",
+      "portion": "1 teaspoon"
+    },
+    {
+      "item": "dried thyme",
+      "portion": "1 teaspoon"
+    },
+    {
+      "item": "salt",
+      "portion": "½ teaspoon"
+    },
+    {
+      "item": "olive oil",
+      "portion": "1 tablespoon"
+    },
+    {
+      "item": "onion",
+      "portion": "1 small"
+    },
+    {
+      "item": "celery stalk",
+      "portion": "1"
+    },
+    {
+      "item": "reen bell pepper",
+      "portion": "½ g"
+    },
+    {
+      "item": "salt",
+      "portion": "½ teaspoon"
+    },
+    {
+      "item": "tomato",
+      "portion": "1 medium"
+    },
+    {
+      "item": "arlic clove",
+      "portion": "1 g"
+    },
+    {
+      "item": "⅗ cup light cream or half-and-half",
+      "portion": "½"
+    },
+    {
+      "item": "¾ cup chicken stock",
+      "portion": "½"
+    },
+    {
+      "item": "parmesan, grated",
+      "portion": "½ cup, 40 grams"
+    },
+    {
+      "item": "lemon juice",
+      "portion": "1 tablespoon"
+    },
+    {
+      "item": "extra salt",
+      "portion": ""
+    },
+    {
+      "item": "dry penne pasta",
+      "portion": "9 oz, 250 grams"
+    },
+    {
+      "item": "reserved pasta water",
+      "portion": ""
+    }
+  ],
+  "preparation_steps": [
+    {
+      "step": "1",
+      "description": "In a bowl, toss shrimp with olive oil, onion powder, garlic powder, paprika, cayenne, oregano, thyme, and salt."
+    },
+    {
+      "step": "2",
+      "description": "Dice up all the veggies, tomatoes and garlic. Bring a large pot of salted water to a boil and cook pasta until al dente. Reserve ½ cup pasta water, then drain."
+    },
+    {
+      "step": "3",
+      "description": "Heat 1 tablespoon oil in a large skillet over medium-high heat. Sear shrimp for 1–2 minutes per side, then remove and set aside."
+    },
+    {
+      "step": "4",
+      "description": "Deglaze the skillet with ¼ cup water, scraping up any brown bits."
+    },
+    {
+      "step": "5",
+      "description": "Add onion, celery, and green pepper. Sauté until softened (5–7 minutes), adding more oil as the water evaporates. Cover with lid to speed up."
+    },
+    {
+      "step": "6",
+      "description": "Stir in tomato and garlic, season with ½ teaspoon salt. Cook for another 4–6 minutes until everything breaks down and melds together. I like to add a little sprinkle of paprika as well."
+    },
+    {
+      "step": "7",
+      "description": "Add cream, chicken stock, and Parmesan. Stir and simmer gently for 1–2 minutes until slightly thickened."
+    },
+    {
+      "step": "8",
+      "description": "Add drained pasta and cooked shrimp back in. Toss everything together. Use pasta water to loosen if needed."
+    },
+    {
+      "step": "9",
+      "description": "Finish with lemon juice (about 1 tablespoon) and extra Parmesan or chives if using. Serve hot!"
+    }
+  ],
+  "allergens": [],
+  "nutrition": {
+    "calories": 555,
+    "protein": 28,
+    "carbs": 59,
+    "fat": 23
+  },
+  "why_this_meal": [
+    "High in protein for muscle building"
+  ],
+  "cuisine_style": "American",
+  "image_url": "https://www.cookedandloved.com/wp-content/uploads/2025/09/cajun-shrimp-pasta-feature.jpg"
+}

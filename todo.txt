@@ -1,0 +1,10 @@
+> Extract record from MONGODB
+
+
+> With 5 sceanriops
+> Each scnarios has query 
+> each query take top 5
+> Use ranking algo to select a top 5 
+
+> Make sure that the link is accessible
+> WRite to MongoDB the new record

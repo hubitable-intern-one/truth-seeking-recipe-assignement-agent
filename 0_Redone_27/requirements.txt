@@ -1,0 +1,8 @@
+pydantic-ai
+pydantic
+pymongo
+redis
+python-dotenv
+tavily-python
+logfire
+nest_asyncio

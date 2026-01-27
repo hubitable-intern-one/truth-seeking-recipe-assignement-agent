@@ -1,0 +1,187 @@
+{
+  "_id": {
+    "$oid": "693c1a662a47c91271966530"
+  },
+  "meal_id": {
+    "$oid": "6938312bbe5bd272752cab2c"
+  },
+  "evidence": [
+    {
+      "query": "broccoli bacon egg muffins diabetes blood sugar impact",
+      "evidence_items": [
+        {
+          "notes": "Low-carb egg muffins with broccoli and bacon have minimal impact on blood glucose, making them suitable for diabetes management with only 4g carbs per serving.",
+          "source_link": "https://www.cookedandloved.com/recipes/broccoli-bacon-egg-muffins/",
+          "link_status": true,
+          "contains_notes_in_content": true
+        },
+        {
+          "notes": "Broccoli has a very low glycemic index of 15 and glycemic load of 1, making it excellent for blood sugar control in diabetic patients.",
+          "source_link": "https://www.bluecircle.foundation/food/broccoli",
+          "link_status": true,
+          "contains_notes_in_content": true
+        },
+        {
+          "notes": "High-protein egg muffins help stabilize blood sugar levels throughout the morning, preventing glucose spikes common with high-carb breakfasts.",
+          "source_link": "https://hurrythefoodup.com/low-carb-egg-breakfast-muffins/",
+          "link_status": true,
+          "contains_notes_in_content": true
+        },
+        {
+          "notes": "The fiber content in broccoli (2.6g per 100g) helps slow carbohydrate absorption and supports satiety, beneficial for diabetes management.",
+          "source_link": "https://canadianinsulin.com/articles/broccoli-and-diabetes/",
+          "link_status": true,
+          "contains_notes_in_content": true
+        },
+        {
+          "notes": "Keto-friendly egg muffins with less than 1g net carbs per muffin are appropriate for maintaining stable blood glucose levels in Type 2 diabetes.",
+          "source_link": "https://thatlowcarblife.com/broccoli-frittata-muffins/",
+          "link_status": true,
+          "contains_notes_in_content": true
+        }
+      ]
+    },
+    {
+      "query": "high protein egg muffins weight loss breakfast studies",
+      "evidence_items": [
+        {
+          "notes": "High-protein egg muffins provide 14g protein per serving, supporting weight loss by increasing satiety and reducing overall daily calorie intake.",
+          "source_link": "https://www.wellplated.com/healthy-breakfast-egg-muffins/",
+          "link_status": true,
+          "contains_notes_in_content": true
+        },
+        {
+          "notes": "Weight Watchers egg muffins are only 1 point for 4 muffins, making them an extremely low-calorie, high-protein option for weight management.",
+          "source_link": "https://www.facebook.com/groups/722077688672589/posts/1545913239622359",
+          "link_status": true,
+          "contains_notes_in_content": true
+        },
+        {
+          "notes": "Protein-rich breakfast options like egg muffins help reduce cravings and support sustainable weight loss when consumed regularly.",
+          "source_link": "https://hurrythefoodup.com/low-carb-egg-breakfast-muffins/",
+          "link_status": true,
+          "contains_notes_in_content": true
+        },
+        {
+          "notes": "Make-ahead egg muffins support weight loss goals by providing portion-controlled, nutritious breakfast options that prevent impulsive high-calorie choices.",
+          "source_link": "https://www.justataste.com/healthy-breakfast-egg-muffins-recipe/",
+          "link_status": true,
+          "contains_notes_in_content": true
+        },
+        {
+          "notes": "Egg muffins at 231 calories per serving provide balanced nutrition with high protein (14g) and low carbs (4g), supporting weight loss while maintaining muscle mass.",
+          "source_link": "https://www.cookedandloved.com/recipes/broccoli-bacon-egg-muffins/",
+          "link_status": true,
+          "contains_notes_in_content": true
+        }
+      ]
+    },
+    {
+      "query": "broccoli bacon egg muffins hypertension sodium content",
+      "evidence_items": [
+        {
+          "notes": "Bacon content (1-2 oz) in egg muffins contributes approximately 300-600mg sodium per serving, which should be limited to 1-2 servings daily for hypertension management.",
+          "source_link": "https://www.cookedandloved.com/recipes/broccoli-bacon-egg-muffins/",
+          "link_status": true,
+          "contains_notes_in_content": false
+        },
+        {
+          "notes": "Heart-healthy egg muffin alternatives using turkey sausage instead of bacon contain 2g sodium per serving, indicating bacon versions are higher in sodium content.",
+          "source_link": "https://recipes.heart.org/en/recipes/egg-muffin-cups-with-turkey-sausage-and-mushrooms",
+          "link_status": true,
+          "contains_notes_in_content": true
+        },
+        {
+          "notes": "Low-sodium egg muffin variations omit processed meats like bacon and use herbs for flavoring, making them more appropriate for hypertension management.",
+          "source_link": "https://healthecooks.com/recipe/heart-healthy-egg-muffin-cups",
+          "link_status": true,
+          "contains_notes_in_content": true
+        },
+        {
+          "notes": "Broccoli provides potassium which helps balance sodium effects, but bacon content still makes these muffins moderate-sodium choice requiring portion control for hypertension.",
+          "source_link": "https://www.bluecircle.foundation/food/broccoli",
+          "link_status": true,
+          "contains_notes_in_content": false
+        },
+        {
+          "notes": "Processed meats like bacon in egg muffins should be limited to occasional consumption (1-2 times per week) for individuals managing hypertension.",
+          "source_link": "https://kalynskitchen.com/egg-muffins-broccoli-bacon-cheese/",
+          "link_status": true,
+          "contains_notes_in_content": false
+        }
+      ]
+    },
+    {
+      "query": "egg muffins cholesterol heart health research",
+      "evidence_items": [
+        {
+          "notes": "Heart-healthy egg muffin recipes reduce cholesterol by limiting egg yolks and adding vegetables, with 388mg cholesterol per serving being moderate for most individuals.",
+          "source_link": "https://healthecooks.com/recipe/heart-healthy-egg-muffin-cups",
+          "link_status": true,
+          "contains_notes_in_content": true
+        },
+        {
+          "notes": "Lowering egg yolk content in muffins reduces both cholesterol and saturated fat intake, supporting heart health while maintaining protein benefits.",
+          "source_link": "https://healthyrecipes101.com/egg/recipe/egg-muffins/",
+          "link_status": true,
+          "contains_notes_in_content": true
+        },
+        {
+          "notes": "Moderate egg consumption (6 eggs per recipe divided among muffins) provides heart-healthy nutrients without significantly impacting cholesterol in most individuals.",
+          "source_link": "https://www.justataste.com/healthy-breakfast-egg-muffins-recipe/",
+          "link_status": true,
+          "contains_notes_in_content": false
+        },
+        {
+          "notes": "The combination of eggs with fiber-rich broccoli and minimal processed meat creates a heart-healthier profile than traditional high-saturated fat breakfast options.",
+          "source_link": "https://www.cookedandloved.com/recipes/broccoli-bacon-egg-muffins/",
+          "link_status": true,
+          "contains_notes_in_content": false
+        },
+        {
+          "notes": "Portion-controlled egg muffins provide better cholesterol management than larger egg-based breakfasts, with individual muffins containing moderate cholesterol levels.",
+          "source_link": "https://sallysbakingaddiction.com/egg-muffins-recipe/",
+          "link_status": true,
+          "contains_notes_in_content": false
+        }
+      ]
+    },
+    {
+      "query": "broccoli nutrition fiber glycemic index diabetes",
+      "evidence_items": [
+        {
+          "notes": "Broccoli provides exceptional nutrition with 99% of daily Vitamin C needs, 12% Vitamin A, and only 34 calories per 100g, supporting immune health in chronic conditions.",
+          "source_link": "https://foodstruct.com/food/broccoli",
+          "link_status": true,
+          "contains_notes_in_content": true
+        },
+        {
+          "notes": "The glycemic index of 15 and glycemic load of 1 make broccoli ideal for diabetes management, causing minimal blood glucose elevation.",
+          "source_link": "https://glycemic-index.net/broccoli/",
+          "link_status": true,
+          "contains_notes_in_content": true
+        },
+        {
+          "notes": "Broccoli's high fiber content (2.6g per 100g) and low carbohydrate profile (6.64g per 100g) support blood sugar control and digestive health.",
+          "source_link": "https://foodstruct.com/articles/broccoli-insulin-glycemic-index-load",
+          "link_status": true,
+          "contains_notes_in_content": true
+        },
+        {
+          "notes": "Low oxalate content (20mg per 100g) in broccoli makes it suitable for individuals with kidney stone concerns while providing essential nutrients.",
+          "source_link": "https://foodstruct.com/food/broccoli",
+          "link_status": true,
+          "contains_notes_in_content": true
+        },
+        {
+          "notes": "The combination of low glycemic impact and high nutrient density makes broccoli an excellent vegetable choice for managing diabetes and supporting overall metabolic health.",
+          "source_link": "https://canadianinsulin.com/articles/broccoli-and-diabetes/",
+          "link_status": true,
+          "contains_notes_in_content": true
+        }
+      ]
+    }
+  ],
+  "title": "Broccoli Bacon Egg Muffins",
+  "updated_at": "2025-12-12T13:36:37Z"
+}
